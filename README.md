@@ -25,9 +25,9 @@ El repositorio está organizado en carpetas temáticas, como:
 semi/
 ├── README.md                                  <- README principal del repositorio
 └── proyecto/                         <- Directorio para el proyecto
-    ├── parte1/                    
+    ├── part1/                    
     │   ├── README.md.v              
     │   └── .v                    
-    └── parte2/
+    └── part2/
     │   ├── README.md.v              
     │   └── .v                    
