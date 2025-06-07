@@ -1,11 +1,11 @@
 # Introducción a la cadena de valor de los semiconductores (Gpo 570)
 
 **Autores:** 
-Fatima Álvarez Nuño | A01645815
-Gregorio Pantoja Guzmán | A01782597
-Jorge Padilla | A01029304
-Christian Damar Marín Ramírez | A01659334
-José Antonio Fernández Pineda | A00344848
+Fatima Álvarez Nuño | A01645815 </br>
+Gregorio Pantoja Guzmán | A01782597 </br>
+Jorge Padilla | A01029304 </br>
+Christian Damar Marín Ramírez | A01659334 </br>
+José Antonio Fernández Pineda | A00344848 </br>
 
 ---
 
