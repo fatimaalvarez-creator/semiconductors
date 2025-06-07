@@ -1,6 +1,6 @@
 # Introducción a la cadena de valor de los semiconductores (Gpo 570)
 
-**Autores:** 
+**Autores:** </br>
 Fatima Álvarez Nuño | A01645815 </br>
 Gregorio Pantoja Guzmán | A01782597 </br>
 Jorge Padilla | A01029304 </br>
