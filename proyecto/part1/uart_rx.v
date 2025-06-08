@@ -42,6 +42,20 @@ always @(posedge clk or posedge rst)
 	else begin
 		case(active_state)
 		RX_IDLE: begin  
+			clock_ctr <= 0;  
+			d_idx <= 0;
+			bit_ctr <= 0;
+			//data_valid <= 0;      // Reseteamos la señal de datos válidos
+			
+			if(serial_in == 0)    // Detectamos el bit de inicio (siempre 0)
+			begin
+				active_state <= RX_START;
+				data_valid <= 0;      // Reseteamos la señal de datos válidos
+			end
+
+			else	
+				active_state <= RX_IDLE;
+		end
 
 		end
 		
