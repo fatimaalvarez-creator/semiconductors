@@ -115,7 +115,19 @@ always @(posedge clk or posedge rst)
 		end
 		
 		RX_STOP: begin
-
+			if(clock_ctr < counts_per_bit - 1) begin
+				clock_ctr <= clock_ctr + 1;
+				active_state <= RX_STOP;
+			end
+			else begin
+				clock_ctr <= 0;
+				// Si el bit de parada es 1 y no hubo error de paridad, datos válidos
+				if(serial_in == 1 && !parity_error)
+					data_valid <= 1;  // Indicamos que tenemos datos válidos
+				else 
+					data_valid <= 0; //si por alguna razon no llega un 1 en tx/rx stop, o hubo error en el parity check, la data no es valida
+				active_state <= RX_IDLE;
+			end
 		end
 		
 		default: begin
