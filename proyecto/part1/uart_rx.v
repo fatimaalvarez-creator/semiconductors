@@ -72,7 +72,30 @@ always @(posedge clk or posedge rst)
 		end
 					
 		RX_DATA: begin
-
+			// En datos, esperamos un bit completo antes de muestrear
+			//estaba en el bit de inicio, ese no hay que leerlo
+			if (clock_ctr < counts_per_bit - 1) begin  
+				clock_ctr <= clock_ctr + 1;
+				active_state <= RX_DATA;
+			end
+			//resetea el clock y mete el bit en el índice correspondiente
+			else begin
+				clock_ctr <= 0;
+				parallel_out[d_idx] <= serial_in;  // Almacenamos el bit recibido
+				
+				// Actualizamos contador de unos para paridad
+				if(serial_in == 1)
+					bit_ctr <= bit_ctr + 1;
+				//si se llega indice 6 (último caso valido), el indice se actualiza a 7 (8tavo bit)
+				if(d_idx < 7) begin
+					d_idx <= d_idx + 1;  
+					active_state <= RX_DATA;  
+				end
+				else begin
+					// Ya recibimos todos los bits de datos, ahora vamos por el de paridad
+					active_state <= RX_PARITY;
+				end
+			end
 		end
 		
 		RX_PARITY: begin
