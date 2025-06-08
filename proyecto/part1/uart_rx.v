@@ -7,6 +7,7 @@ module uart_rx #(
 	input serial_in,
 	input rst,
 	output reg [7:0] parallel_out = 'b00000000,
+	output reg data_valid               // Nueva señal que indica cuando los datos son válidos
 );
 
 localparam counts_per_bit = BASE_FREQ / BAUDRATE; // Cuántos ciclos de reloj por bit
@@ -14,7 +15,8 @@ localparam counts_per_bit = BASE_FREQ / BAUDRATE; // Cuántos ciclos de reloj po
 // Estados de la máquina
 localparam RX_IDLE = 3'b000;
 localparam RX_START = 3'b001;
-localparam RX_DATA = 3'b010; 
+localparam RX_DATA = 3'b010;
+localparam RX_PARITY = 3'b011;  
 localparam RX_STOP = 3'b100;
 
 // Registros internos
@@ -38,6 +40,9 @@ always @(posedge clk or posedge rst)
 
 		end
 		
+		RX_PARITY: begin
+
+		end
 		
 		RX_STOP: begin
 
