@@ -55,12 +55,20 @@ always @(posedge clk or posedge rst)
 
 			else	
 				active_state <= RX_IDLE;
-		end
 
 		end
 		
 		RX_START: begin  
-
+			// Esperamos hasta la mitad del bit para muestrear en el centro
+			if(clock_ctr < (counts_per_bit - 1)/2) begin
+				clock_ctr <= clock_ctr + 1;  
+				active_state <= RX_START;
+			end
+			//ya se cumplió medio periodo de bit, va hacia el estado donde lee los bits
+			else begin
+				active_state <= RX_DATA;
+				clock_ctr <= 0;
+			end
 		end
 					
 		RX_DATA: begin
