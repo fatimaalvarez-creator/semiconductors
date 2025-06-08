@@ -20,7 +20,15 @@ localparam RX_PARITY = 3'b011;
 localparam RX_STOP = 3'b100;
 
 // Registros internos
-
+//active or current state of the FSM is initialized to RX_IDLE
+reg [2:0] active_state = RX_IDLE;
+//clock counter to count the number of clock cycles, recieves new bit every counts_per_bit cycles (baudrate)
+reg [31:0] clock_ctr = 0;
+//shift register to store the index of the bit being received
+reg [2:0] d_idx = 0;
+//shift register to count the number of 1 bits received (for parity check)
+reg [3:0] bit_ctr = 0;         // Contador de bits '1' para verificar paridad
+reg parity_error = 0;          // Indica si hubo error de paridad
 
 always @(posedge clk or posedge rst)
 	if(rst) begin 
