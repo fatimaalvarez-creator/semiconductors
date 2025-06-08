@@ -99,7 +99,19 @@ always @(posedge clk or posedge rst)
 		end
 		
 		RX_PARITY: begin
-
+			// Verificamos el bit de paridad
+			if(clock_ctr < counts_per_bit - 1) begin
+				clock_ctr <= clock_ctr + 1;
+				active_state <= RX_PARITY;
+			end
+			else begin
+				clock_ctr <= 0;
+				// Verificación de paridad par (mismo método que en TX)
+				//si son bits pares pero se manda bit de pariedad o visceversa, hay error
+				parity_error <= ((bit_ctr % 2 == 0) && serial_in == 1) || 
+				               ((bit_ctr % 2 == 1) && serial_in == 0);
+				active_state <= RX_STOP;
+			end
 		end
 		
 		RX_STOP: begin
