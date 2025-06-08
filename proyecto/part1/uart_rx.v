@@ -31,8 +31,13 @@ reg [3:0] bit_ctr = 0;         // Contador de bits '1' para verificar paridad
 reg parity_error = 0;          // Indica si hubo error de paridad
 
 always @(posedge clk or posedge rst)
-	if(rst) begin 
-
+	if(rst) begin
+		active_state <= RX_IDLE;
+		clock_ctr <= 0;
+		d_idx <= 0;
+		bit_ctr <= 0;
+		data_valid <= 0;
+		parity_error <= 0;
 	end
 	else begin
 		case(active_state)
