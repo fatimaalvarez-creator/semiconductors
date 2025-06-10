@@ -22,12 +22,13 @@ El objetivo del curso es **comprender el funcionamiento y los eslabones clave de
 El repositorio está organizado en carpetas temáticas, como:
 
 ```
-semi/
-├── README.md                                  <- README principal del repositorio
+semiconductors/
+├── README.md                         <- README principal del repositorio
 └── proyecto/                         <- Directorio para el proyecto
-    ├── part1/                    
-    │   ├── README.md.v              
-    │   └── .v                    
-    └── part2/
-    │   ├── README.md.v              
+    ├── part1/                        <- Directorio para la parte 1 del proyecto
+    │   ├── README.md                 <- README para la parte 1 del del proyecto
+    |   ├── uart_rx.v                 <- Archivo .v para el receptor de la UART
+    │   └── uart_tx.v                 <- Archivo .v para el transmisor de la UART
+    └── part2/                        <- Directorio para la parte 2 del proyecto
+    │   ├── README.md.v               <- README para la parte 1 del del proyecto
     │   └── .v                    
