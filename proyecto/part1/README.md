@@ -68,7 +68,18 @@ Las simulaciones validan lo siguiente:
 
 **Testbenches incluidos:**
 
-- `uart_tx_tb.v` → Prueba del transmisor  
+- `uart_tx_tb.v` → Prueba del transmisor
+  
+  **Simulación de Tx**
+  
+  ![image](https://github.com/user-attachments/assets/79be2c47-d6be-4b37-a01b-1556a0d7bfd2)
+  En la gráfica de simulación se observa que la transmisión UART se lleva a cabo correctamente. El módulo inicia la transmisión de tres datos secuenciales (0x55, 0xAA y 0x3C) mediante la señal send_data. Esta señal se activa brevemente para indicar que un nuevo byte debe ser enviado. Después, se mantiene en alto durante un ciclo de reloj. Esto es adecuado para iniciar el proceso de transmisión sin generar múltiples envíos por un mismo dato.
+  
+  El dato a transmitir (data[7:0]) se actualiza correctamente antes de cada envío. Se puede verificar que el valor de salida serial_out cambia de acuerdo con la trama UART correspondiente para cada byte. Las tramas incluyen el bit de inicio (start bit), los ocho bits de datos, el bit de paridad (impar en este caso), y el bit de parada (stop bit).
+
+  El comportamiento interno del módulo también es coherente con el proceso de transmisión. El registro active_state muestra la evolución a través de los distintos estados del transmisor, desde reposo (IDLE), paso por START, DATA, PARITY, hasta llegar a STOP. Las señales auxiliares como bit_ctr y d_idx también reflejan el avance por cada bit del dato y la temporización interna por bit, respectivamente.
+
+  Finalmente, la señal serial_out presenta las transiciones esperadas. Por ejemplo, para el primer dato enviado (0x55, patrón binario 01010101), se observa una oscilación coherente con los bits de datos, además del bit de paridad correcto y el correspondiente bit de parada, lo cual confirma visualmente que la transmisión es precisa.
 - `uart_rx_tb.v` → Prueba del receptor  
 - `uart_top_tb.v` → Prueba del sistema completo
 
