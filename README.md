@@ -28,7 +28,11 @@ semiconductors/
     ├── part1/                        <- Directorio para la parte 1 del proyecto
     │   ├── README.md                 <- README para la parte 1 del del proyecto
     |   ├── uart_rx.v                 <- Archivo .v para el receptor de la UART
-    │   └── uart_tx.v                 <- Archivo .v para el transmisor de la UART
+    |   ├── uart_rx_tb.v              <- Archivo .v para el testbench del receptor de la UART
+    │   ├── uart_tx.v                 <- Archivo .v para el transmisor de la UART
+    |   ├── uart_rx_tb.v              <- Archivo .v para el testbench del transmisor de la UART
+    |   ├── uart_top.v                <- Archivo .v para el top de la UART
+    │   └── uart_top_tb.v             <- Archivo .v para el testbench del top de la UART
     └── part2/                        <- Directorio para la parte 2 del proyecto
-    │   ├── README.md.v               <- README para la parte 1 del del proyecto
+    │   ├── README.md.v               <- README para la parte 2 del del proyecto
     │   └── .v                    
