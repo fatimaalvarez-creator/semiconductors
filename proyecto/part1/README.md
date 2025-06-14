@@ -112,12 +112,15 @@ Este ejercicio refuerza la importancia de los UARTs en sistemas embebidos y sien
 
 ---
 
-## 📚 Referencias
+## 📚 Referencias en formato APA
 
-- Documentación oficial del estándar RS-232  
-- Apuntes y material del curso  
-- Libros de diseño digital (VHDL y Verilog)  
-- Recursos académicos sobre UART y FSMs  
+* Brown, S. D., & Vranesic, Z. G. (2009). Fundamentals of Digital Logic with VHDL Design (3rd ed.). McGraw-Hill.
+
+* Tocci, R. J., Widmer, N. S., & Moss, G. L. (2011). Sistemas digitales: principios y aplicaciones (11.ª ed.). Pearson Educación.
+
+* Spiceworks. (s. f.). What is UART? Universal asynchronous receiver-transmitter. Spiceworks. Recuperado el 14 de junio de 2025, de https://www.spiceworks.com/tech/networking/articles/what-is-uart/ 
+
+* IEEE Std 1076™-2008. (2009). IEEE Standard VHDL Language Reference Manual. Institute of Electrical and Electronics Engineers.
 
 ---
 
