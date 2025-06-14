@@ -86,7 +86,7 @@ Las simulaciones validan lo siguiente:
 
    **Simulación de Rx**
 
-   ![alt text](uart_rx_tb-1.png)
+   ![alt text](uart_rx_tb.png)
 
    En la gráfica de simulación se observa que la **recepción UART** se lleva a cabo correctamente. El módulo inicia en estado de reposo (`RX_IDLE = 1`) mientras espera la llegada de un bit de inicio. Al detectarse una transición baja en la señal `serial_in`, el receptor comienza el proceso de captura de datos.
 
