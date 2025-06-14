@@ -97,7 +97,7 @@ Este ejercicio refuerza la importancia de los UARTs en sistemas embebidos y sien
 
 El código fuente en Verilog se encuentra en los archivos adjuntos:  
 `uart_tx.v`  
-`uart_rx.v`
+`uart_rx.v` </br>
 `uart_top.v`
 
 ---
