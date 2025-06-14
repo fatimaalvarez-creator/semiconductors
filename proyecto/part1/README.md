@@ -63,5 +63,6 @@ El diseño e implementación inicial del UART permite comprender de manera estru
 El código fuente en Verilog se encuentra en los archivos adjuntos:  
 `uart_tx.v`  
 `uart_rx.v`
+`uart_top.v`
 
 ---
