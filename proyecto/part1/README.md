@@ -99,6 +99,19 @@ Las simulaciones validan lo siguiente:
 - `uart_top_tb.v` → Prueba del sistema completo
 
    **Simulación de TOP**
+  ![WhatsApp Image 2025-06-14 at 12 55 02_49373ac8](https://github.com/user-attachments/assets/f909d34b-d110-4e91-8243-28860e0164d1)
+  En la gráfica de simulación se observa el comportamiento correcto del sistema UART en modo transmisión, gestionado desde el módulo top_tb. Al inicio, el sistema se mantiene en estado de reposo (send_data = 0) y con rst desactivado, permitiendo que la lógica FSM permanezca estable y sincronizada al reloj (clk).
+
+  Cuando se activa la señal send_data, el sistema interpreta que hay un nuevo dato disponible para ser transmitido. Esto coincide con la señal data_valid = 1, la cual indica que el dato en el bus data[7:0] es válido —en este caso el valor 0x55 (01010101 en binario).
+
+  La señal parallel_out[7:0] muestra una evolución clara conforme se realiza la transmisión: los valores que aparecen (0x00, 0x1t, 0x55, 0x4a, etc.) representan la transformación progresiva del dato conforme se mueve por las diferentes etapas de transmisión y preparación de la salida serial.
+
+  A lo largo del tiempo de simulación, se puede observar cómo el sistema transmite correctamente una serie de valores. El comportamiento temporal está bien alineado con el reloj del sistema, lo que indica que el diseño mantiene la sincronización correcta de todos los eventos clave.
+
+  El bit de reset (rst) se mantiene brevemente activo al principio y luego se libera, permitiendo que los estados FSM inicien desde una condición conocida y limpia. Esto es crucial para evitar condiciones indeterminadas al comienzo de la simulación.
+
+  En resumen, la gráfica confirma que el UART envía datos de forma secuencial y estable. La combinación de señales send_data, data_valid, y parallel_out demuestra que la arquitectura FSM de transmisión está funcionando de forma ordenada, preparando correctamente los frames UART para su envío en tiempo real.
+
 
 ---
 
