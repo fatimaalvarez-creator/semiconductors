@@ -24,6 +24,9 @@ uart_top TOP (
 always #10 clk = ~clk;  // Periodo de 20 ns
 
 initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0, uart_top_tb);
+
     // Inicialización
     rst = 1;
     #40;
