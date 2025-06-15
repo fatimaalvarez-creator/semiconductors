@@ -35,4 +35,4 @@ semiconductors/
     │   └── uart_top_tb.v             <- Archivo .v para el testbench del top de la UART
     └── part2/                        <- Directorio para la parte 2 del proyecto
     │   ├── README.md                 <- README para la parte 2 del del proyecto
-    │   └── .v                    
+    │   └── uart_top.gds              <- Archivo .gds para el circuito final de la UART      
